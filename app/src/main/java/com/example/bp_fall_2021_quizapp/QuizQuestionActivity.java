@@ -33,7 +33,8 @@ public class QuizQuestionActivity extends AppCompatActivity {
         // create arraylist of questions
         questions = new ArrayList<QuestionModel>(5);
         // get username intent from main activity screen
-        name = getIntent().getExtras().getString("Username");
+        Bundle bundle = getIntent().getExtras();
+        name = bundle.getString("Username");
         // initialize views using findViewByID
         progressbar = findViewById(R.id.progressbar);
         Group = findViewById(R.id.group);
@@ -124,7 +125,6 @@ public class QuizQuestionActivity extends AppCompatActivity {
             intent.putExtra("Username",name);
             intent.putExtra("Score", score);
             startActivity(intent);
-            finish();
 
         }
         // if finished with quiz, start Results activity

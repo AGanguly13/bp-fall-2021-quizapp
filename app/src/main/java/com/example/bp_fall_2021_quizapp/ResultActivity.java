@@ -18,12 +18,15 @@ public class ResultActivity extends AppCompatActivity {
 
         // initialize UI components
         view = findViewById(R.id.View);
-        String name = getIntent().getExtras().getString("Username");
-        int score = getIntent().getExtras().getInt("Score");
+
 
         // set username and score
-        view.setText("Congratulations " + name + " You received a score of " + score + "/5. If you want to try again, hit the restart button below!");
-
+        Bundle bundle = getIntent().getExtras();
+        String name = bundle.getString("username");
+        int score = bundle.getInt("score");
+        int totalQuestions = bundle.getInt("totalQuestions");
+        view.setText(name);
+        view.setText("Your score is " + score + " out of " + totalQuestions);
     }
 
     /**
